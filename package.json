@@ -1,0 +1,17 @@
+{
+  "name": "react-code-generator-library",
+  "author": {
+    "name": "Harris Geo",
+    "email": "harrisgeo1988@gmail.com",
+    "url": "https://harrisgeo.me"
+  },
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "new": "plop"
+  },
+  "dependencies": {
+    "plop": "^2.6.0"
+  }
+}
