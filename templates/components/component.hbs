@@ -1,0 +1,23 @@
+import React from 'react'
+{{#if withStyles}}
+import { {{ pascalCase name }}Wrapper } from './{{ pascalCase name }}.styles'
+{{/if}}
+{{#if withModels}}
+import { {{ pascalCase name }}Props } from './{{ pascalCase name }}.models'
+{{/if}}
+
+export const {{ pascalCase name }} = (props{{#if withModels}}: {{ pascalCase name}}Props {{/if}}) => {
+  return (
+    {{#if withStyles}}
+    <{{ pascalCase name }}Wrapper>
+    {{else}}
+    <>
+    {{/if}}
+      Generated via CLI 🎉
+    {{#if withStyles}}
+    </{{ pascalCase name }}Wrapper>
+    {{else}}
+    </>
+    {{/if}}
+  )
+}
