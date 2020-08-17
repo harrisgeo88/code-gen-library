@@ -1,5 +1,16 @@
-const config = require('./default.config')
-const helpers = require('./templates/helpers')
+const rootPath = process.argv[5] || '.'
+const config = require(`${rootPath}/default.config`)
+
+function isNotEmpty(input) {
+  let res = true
+  if (!input || input === '') {
+    res = 'Please provide a name'
+  }
+  if (input.length < 2) {
+    res = 'Please provide a longer name'
+  }
+  return res
+}
 
 module.exports = function (plop) {
   const {
@@ -20,7 +31,7 @@ module.exports = function (plop) {
         type: 'input',
         name: 'name',
         message: 'Component name?',
-        validate: helpers.isNotEmpty,
+        validate: isNotEmpty,
       },
       {
         when: withStyles,
@@ -39,27 +50,27 @@ module.exports = function (plop) {
       const actions = [
         {
           type: 'add',
-          path: `${componentsPath}/{{ pascalCase name }}/{{ pascalCase name }}.${reactExtension}`,
-          templateFile: 'templates/components/component.hbs',
+          path: `${rootPath}/${componentsPath}/{{ pascalCase name }}/{{ pascalCase name }}.${reactExtension}`,
+          templateFile: `${rootPath}/templates/components/component.hbs`,
         },
         {
           type: 'add',
-          path: `${componentsPath}{{ pascalCase name }}/index.${extension}`,
-          templateFile: 'templates/components/index.hbs',
+          path: `${rootPath}/${componentsPath}{{ pascalCase name }}/index.${extension}`,
+          templateFile: `${rootPath}/templates/components/index.hbs`,
         },
       ]
       if (withStyles) {
         actions.push({
           type: 'add',
-          path: `${componentsPath}/{{ pascalCase name }}/{{ pascalCase name }}.styles.${extension}`,
-          templateFile: 'templates/components/styles.hbs',
+          path: `${rootPath}/${componentsPath}/{{ pascalCase name }}/{{ pascalCase name }}.styles.${extension}`,
+          templateFile: `${rootPath}/templates/components/styles.hbs`,
         })
       }
       if (withModels) {
         actions.push({
           type: 'add',
-          path: `${componentsPath}/{{ pascalCase name }}/{{ pascalCase name }}.models.ts`,
-          templateFile: 'templates/components/models.hbs',
+          path: `${rootPath}/${componentsPath}/{{ pascalCase name }}/{{ pascalCase name }}.models.ts`,
+          templateFile: `${rootPath}/templates/components/models.hbs`,
         })
       }
 
@@ -73,7 +84,7 @@ module.exports = function (plop) {
         type: 'input',
         name: 'name',
         message: 'Util name?',
-        validate: helpers.isNotEmpty,
+        validate: isNotEmpty,
       },
       {
         type: 'input',
@@ -86,14 +97,14 @@ module.exports = function (plop) {
       const actions = [
         {
           type: 'add',
-          path: `${path}/{{ camelCase name }}/{{ camelCase name }}.${extension}`,
-          templateFile: 'templates/utils/util.hbs',
+          path: `${rootPath}/${path}/{{ camelCase name }}/{{ camelCase name }}.${extension}`,
+          templateFile: `${rootPath}/templates/utils/util.hbs`,
           data: { withTypescript },
         },
         {
           type: 'add',
-          path: `${path}/{{ camelCase name }}/index.${extension}`,
-          templateFile: 'templates/utils/index.hbs',
+          path: `${rootPath}/${path}/{{ camelCase name }}/index.${extension}`,
+          templateFile: `${rootPath}/templates/utils/index.hbs`,
         },
       ]
 

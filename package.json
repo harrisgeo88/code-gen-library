@@ -5,13 +5,28 @@
     "email": "harrisgeo1988@gmail.com",
     "url": "https://harrisgeo.me"
   },
+  "bin": {
+    "generate": "plop --plopfile ./bin/bundle.esm.js $(pwd)"
+  },
+  "main": "bin/bundle.cjs.js",
+  "module": "bin/bundle.esm.js",
   "version": "0.0.1",
-  "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "new": "plop"
+    "test": "plop --plopfile ./bin/bundle.esm.js --cwd $(pwd)",
+    "new": "plop",
+    "clean-all": "yarn clean-src && yarn clean-bin",
+    "clean-src": "rimraf src",
+    "clean-bin": "rimraf bin",
+    "build": "rollup -c"
   },
-  "dependencies": {
-    "plop": "^2.6.0"
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "plop": "^2.6.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.19.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^6.1.0"
   }
 }
