@@ -1,6 +1,7 @@
 import babel from 'rollup-plugin-babel'
 import resolve from 'rollup-plugin-node-resolve'
 import { terser } from 'rollup-plugin-terser'
+import shebang from 'rollup-plugin-preserve-shebang'
 
 import pkg from './package.json'
 
@@ -28,6 +29,7 @@ export default {
     },
   ],
   plugins: [
+    shebang(),
     resolve(),
     babel({
       exclude: 'node_modules/**',

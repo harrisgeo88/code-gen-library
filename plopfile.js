@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const rootPath = process.argv[5] || '.'
 const config = require(`${rootPath}/default.config`)
 
