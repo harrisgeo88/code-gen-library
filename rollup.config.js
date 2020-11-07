@@ -21,7 +21,7 @@ export default {
     },
     {
       name: 'generate',
-      file: `bin/bundle.js`,
+      file: `build/bundle.js`,
       globals: {
         plop: 'plop',
       },

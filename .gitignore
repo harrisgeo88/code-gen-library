@@ -115,8 +115,8 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# bin files
-bin
+# build files
+build
 
 # OSX files
 .DS_Store
