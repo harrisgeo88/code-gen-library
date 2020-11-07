@@ -10,7 +10,7 @@
   },
   "main": "bin/bundle.cjs.js",
   "module": "bin/bundle.esm.js",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "license": "MIT",
   "scripts": {
     "test": "plop --plopfile ./bin/bundle.esm.js --cwd $(pwd)",
