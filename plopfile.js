@@ -6,7 +6,7 @@ const defaultConfig = require(`${rootPath}/default.config`)
 
 let config
 try {
-  config = require(`${projectPath}/rcgl.config`)
+  config = require(`${projectPath}/cgl.config`)
 } catch(err) {
   console.log("no custom config... switching to default")
   config = defaultConfig
