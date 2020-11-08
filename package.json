@@ -5,6 +5,8 @@
     "email": "harrisgeo1988@gmail.com",
     "url": "https://harrisgeo.me"
   },
+  "main": "build/bundle.cjs.js",
+  "module": "build/bundle.esm.js",
   "bin": {
     "generate": "bin/generate"
   },

@@ -1,1 +1,3 @@
-./node_modules/plop/bin/plop.js
+plopfile="$(pwd)/node_modules/react-code-generator-library/build/bundle.js"
+
+./node_modules/.bin/plop --plopfile $plopfile --cwd $(pwd)

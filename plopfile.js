@@ -1,6 +1,16 @@
 #!/usr/bin/env node
-const rootPath = process.argv[5] || '.'
-const config = require(`${rootPath}/default.config`)
+const isModule = !!process.argv[2]
+const rootPath = isModule ? '..' : '.'
+const projectPath = isModule ? process.argv[5] : '.'
+const defaultConfig = require(`${rootPath}/default.config`)
+
+let config
+try {
+  config = require(`${projectPath}/rcgl.config`)
+} catch(err) {
+  console.log("no custom config... switching to default")
+  config = defaultConfig
+}
 
 function isNotEmpty(input) {
   let res = true
@@ -51,26 +61,26 @@ module.exports = function (plop) {
       const actions = [
         {
           type: 'add',
-          path: `${rootPath}/${componentsPath}/{{ pascalCase name }}/{{ pascalCase name }}.${reactExtension}`,
+          path: `${projectPath}/${componentsPath}/{{ pascalCase name }}/{{ pascalCase name }}.${reactExtension}`,
           templateFile: `${rootPath}/templates/components/component.hbs`,
         },
         {
           type: 'add',
-          path: `${rootPath}/${componentsPath}{{ pascalCase name }}/index.${extension}`,
+          path: `${projectPath}/${componentsPath}/{{ pascalCase name }}/index.${extension}`,
           templateFile: `${rootPath}/templates/components/index.hbs`,
         },
       ]
       if (withStyles) {
         actions.push({
           type: 'add',
-          path: `${rootPath}/${componentsPath}/{{ pascalCase name }}/{{ pascalCase name }}.styles.${extension}`,
+          path: `${projectPath}/${componentsPath}/{{ pascalCase name }}/{{ pascalCase name }}.styles.${extension}`,
           templateFile: `${rootPath}/templates/components/styles.hbs`,
         })
       }
       if (withModels) {
         actions.push({
           type: 'add',
-          path: `${rootPath}/${componentsPath}/{{ pascalCase name }}/{{ pascalCase name }}.models.ts`,
+          path: `${projectPath}/${componentsPath}/{{ pascalCase name }}/{{ pascalCase name }}.models.ts`,
           templateFile: `${rootPath}/templates/components/models.hbs`,
         })
       }
