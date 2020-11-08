@@ -13,15 +13,6 @@ export default {
   output: [
     {
       file: pkg.main,
-      format: 'cjs',
-    },
-    {
-      file: pkg.module,
-      format: 'esm',
-    },
-    {
-      name: 'generate',
-      file: `build/bundle.js`,
       globals: {
         plop: 'plop',
       },

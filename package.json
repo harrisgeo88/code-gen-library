@@ -5,12 +5,11 @@
     "email": "harrisgeo1988@gmail.com",
     "url": "https://harrisgeo.me"
   },
-  "main": "build/bundle.cjs.js",
-  "module": "build/bundle.esm.js",
+  "main": "build/bundle.js",
   "bin": {
     "generate": "bin/generate"
   },
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "scripts": {
     "test": "plop --plopfile ./bin/bundle.esm.js --cwd $(pwd)",
