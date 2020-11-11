@@ -2,7 +2,9 @@
 
 Stop worrying about the small things. A quick and opinionated way of generating code for your React projects 🏗
 
-<img src="./demo.gif" />
+<p align="center">
+  <img src="./demo.gif" />
+</p>
 
 ---
 
