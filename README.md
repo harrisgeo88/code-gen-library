@@ -3,7 +3,11 @@
 Stop worrying about the small things. A quick and opinionated way of generating code for your React projects 🏗
 
 <p align="center">
-  <img src="./demo.gif" />
+  <img src="./cgl-cli.gif" />
+</p>
+
+<p align="center">
+  <img src="./cgl-code.gif" />
 </p>
 
 ---
