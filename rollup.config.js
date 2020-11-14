@@ -7,24 +7,40 @@ import pkg from './package.json'
 
 const production = !process.env.ROLLUP_WATCH
 
-export default {
-  input: 'plopfile.js',
-  external: ['plop'],
-  output: [
-    {
-      file: pkg.main,
-      globals: {
-        plop: 'plop',
+const plugins = [
+  shebang(),
+  resolve(),
+  babel({
+    exclude: 'node_modules/**',
+  }),
+  production && terser(),
+]
+
+const configs = [
+  {
+    input: 'plopfile.js',
+    external: ['plop'],
+    output: [
+      {
+        file: pkg.main,
+        globals: {
+          plop: 'plop',
+        },
+        format: 'umd',
       },
-      format: 'umd',
-    },
-  ],
-  plugins: [
-    shebang(),
-    resolve(),
-    babel({
-      exclude: 'node_modules/**',
-    }),
-    production && terser(),
-  ],
-}
+    ],
+    plugins
+  },
+  {
+    input: 'logo.js',
+    output: [
+      {
+        file: './build/logo.js',
+        format: 'umd',
+      },
+    ],
+    plugins
+  },
+]
+
+export default configs

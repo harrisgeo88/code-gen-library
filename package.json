@@ -9,10 +9,10 @@
   "bin": {
     "generate": "bin/generate"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "scripts": {
-    "test": "plop --plopfile ./bin/bundle.esm.js --cwd $(pwd)",
+    "test": "plop --plopfile ./build/bundle.js --cwd $(pwd)",
     "new": "plop",
     "clean-all": "yarn clean-src && yarn clean-bin",
     "clean-src": "rimraf src",

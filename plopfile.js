@@ -3,6 +3,7 @@ const isModule = !!process.argv[2]
 const rootPath = isModule ? '..' : '.'
 const projectPath = isModule ? process.argv[5] : '.'
 const defaultConfig = require(`${rootPath}/default.config`)
+const printLogo = require('./logo')
 
 let config
 try {
@@ -34,7 +35,8 @@ module.exports = function (plop) {
   } = config
   const extension = withTypescript ? 'ts' : 'js'
   const reactExtension = `${extension}${jsx ? 'x' : ''}`
-
+  
+  printLogo()
   plop.setGenerator('Component', {
     description: 'Generate a React component ⚛️',
     prompts: [
