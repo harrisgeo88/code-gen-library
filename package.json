@@ -9,7 +9,7 @@
   "bin": {
     "generate": "bin/generate"
   },
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "scripts": {
     "test": "plop --plopfile ./build/bundle.js --cwd $(pwd)",

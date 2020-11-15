@@ -4,11 +4,11 @@
 Stop worrying about the small things. A quick and opinionated way of generating code for your React projects 🏗
 
 <p align="center">
-  <img src="./cgl-cli.gif" />
+  <img src="https://user-images.githubusercontent.com/630705/99194052-0a284400-2775-11eb-8435-886f3e5336a8.gif" />
 </p>
 
 <p align="center">
-  <img src="./cgl-code.gif" />
+  <img src="https://user-images.githubusercontent.com/630705/99193989-748cb480-2774-11eb-8c59-0ea0f76de8c3.gif" />
 </p>
 
 ---
