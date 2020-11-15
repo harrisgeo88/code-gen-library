@@ -1,4 +1,5 @@
 # Code Gen Library
+[![npm version](https://badge.fury.io/js/code-gen-library.svg)](https://badge.fury.io/js/code-gen-library)
 
 Stop worrying about the small things. A quick and opinionated way of generating code for your React projects 🏗
 
