@@ -26,7 +26,7 @@ npm install --save-dev code-gen-library
 npx generate
 ```
 
-or if installed globabally
+or if installed globally
 
 ```
 generate
@@ -100,9 +100,10 @@ Rule | Description | Default value
 -- | -- | --
 componentsPath | The path where the components will be put | src/components/
 jsx | If the main component will be `.jsx` / `.tsx` or `.js` / `.ts` | true
-withTypescript | All files will be generated with TypeScript `.ts` / `.tsx` format | true
+utilsPath | The default path for the utils | src/utils/
 withModels | Models to be separated from the main component. Models files will suffix with `.models.*`  | true
 withStyles | Styles to be separated from the main component. Styles files will suffix with `.styles.*` | true
-utilsPath | The default path for the utils | src/utils/
+withTests | File for tests to also be included in the same directory. WIll suffix with `.test.*` format | true
+withTypescript | All files will be generated with TypeScript `.ts` / `.tsx` format | true
 
 ### More to come soon

@@ -27,15 +27,17 @@ function isNotEmpty(input) {
 module.exports = function (plop) {
   const {
     componentsPath,
-    withTypescript,
     jsx,
-    withStyles,
-    withModels,
     utilsPath,
+    withModels,
+    withStyles,
+    withTests,
+    withTypescript,
   } = config
   const extension = withTypescript ? 'ts' : 'js'
   const reactExtension = `${extension}${jsx ? 'x' : ''}`
-  
+  const type = 'add'
+
   printLogo()
   plop.setGenerator('Component', {
     description: 'Generate a React component ⚛️',
@@ -60,30 +62,40 @@ module.exports = function (plop) {
       },
     ],
     actions: function ({ withStyles, withModels }) {
+      const pathToFolder = `${projectPath}/${componentsPath}/{{ pascalCase name }}`
+      const pathToTemplate = `${rootPath}/templates/components`
+
       const actions = [
         {
-          type: 'add',
-          path: `${projectPath}/${componentsPath}/{{ pascalCase name }}/{{ pascalCase name }}.${reactExtension}`,
-          templateFile: `${rootPath}/templates/components/component.hbs`,
+          type,
+          path: `${pathToFolder}/{{ pascalCase name }}.${reactExtension}`,
+          templateFile: `${pathToTemplate}/component.hbs`,
         },
         {
-          type: 'add',
-          path: `${projectPath}/${componentsPath}/{{ pascalCase name }}/index.${extension}`,
-          templateFile: `${rootPath}/templates/components/index.hbs`,
+          type,
+          path: `${pathToFolder}/index.${extension}`,
+          templateFile: `${pathToTemplate}/index.hbs`,
         },
       ]
       if (withStyles) {
         actions.push({
-          type: 'add',
-          path: `${projectPath}/${componentsPath}/{{ pascalCase name }}/{{ pascalCase name }}.styles.${extension}`,
-          templateFile: `${rootPath}/templates/components/styles.hbs`,
+          type,
+          path: `${pathToFolder}/{{ pascalCase name }}.styles.${extension}`,
+          templateFile: `${pathToTemplate}/styles.hbs`,
         })
       }
       if (withModels) {
         actions.push({
-          type: 'add',
-          path: `${projectPath}/${componentsPath}/{{ pascalCase name }}/{{ pascalCase name }}.models.ts`,
-          templateFile: `${rootPath}/templates/components/models.hbs`,
+          type,
+          path: `${pathToFolder}/{{ pascalCase name }}.models.ts`,
+          templateFile: `${pathToTemplate}/models.hbs`,
+        })
+      }
+      if (withTests) {
+        actions.push({
+          type,
+          path: `${pathToFolder}/{{ pascalCase name }}.test.ts`,
+          templateFile: `${pathToTemplate}/test.hbs`,
         })
       }
 
@@ -107,19 +119,30 @@ module.exports = function (plop) {
       },
     ],
     actions: function ({ path }) {
+      const pathToFolder = `${rootPath}/${path}/{{ camelCase name }}`
+      const pathToTemplate = `${rootPath}/templates/utils`
+
       const actions = [
         {
-          type: 'add',
-          path: `${rootPath}/${path}/{{ camelCase name }}/{{ camelCase name }}.${extension}`,
-          templateFile: `${rootPath}/templates/utils/util.hbs`,
+          type,
+          path: `${pathToFolder}/{{ camelCase name }}.${extension}`,
+          templateFile: `${pathToTemplate}/util.hbs`,
           data: { withTypescript },
         },
         {
-          type: 'add',
-          path: `${rootPath}/${path}/{{ camelCase name }}/index.${extension}`,
-          templateFile: `${rootPath}/templates/utils/index.hbs`,
+          type,
+          path: `${pathToFolder}/index.${extension}`,
+          templateFile: `${pathToTemplate}/index.hbs`,
         },
       ]
+
+      if (withTests) {
+        actions.push({
+          type,
+          path: `${pathToFolder}/{{ camelCase name }}.test.${extension}`,
+          templateFile: `${pathToTemplate}/test.hbs`,
+        })
+      }
 
       return actions
     },
