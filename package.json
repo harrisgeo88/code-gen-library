@@ -9,7 +9,11 @@
   "bin": {
     "generate": "bin/generate"
   },
-  "version": "1.0.5",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harrisgeo88/code-gen-library"
+  },
+  "version": "1.0.6",
   "license": "MIT",
   "scripts": {
     "test": "plop --plopfile ./build/bundle.js --cwd $(pwd)",
