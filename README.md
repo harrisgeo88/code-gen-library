@@ -106,4 +106,9 @@ withStyles | Styles to be separated from the main component. Styles files will s
 withTests | File for tests to also be included in the same directory. WIll suffix with `.test.*` format | true
 withTypescript | All files will be generated with TypeScript `.ts` / `.tsx` format | true
 
+## Inspiration
+
+Check out [this link](https://www.harrisgeo.me/blogs/stop-worrying-about-the-little-things) for reasoning and inspiration behind `code-gen-library`
+
+
 ### More to come soon
