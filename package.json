@@ -13,15 +13,16 @@
     "type": "git",
     "url": "https://github.com/harrisgeo88/code-gen-library"
   },
-  "version": "1.0.6",
+  "version": "1.0.7",
   "license": "MIT",
   "scripts": {
     "test": "plop --plopfile ./build/bundle.js --cwd $(pwd)",
     "new": "plop",
-    "clean-all": "yarn clean-src && yarn clean-bin",
+    "clean-all": "yarn clean-src && yarn clean-build",
     "clean-src": "rimraf src",
-    "clean-bin": "rimraf bin",
-    "build": "rollup -c"
+    "clean-build": "rimraf build",
+    "build": "rollup -c",
+    "publish": "npm run clean-build && npm run build && npm publish"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",

@@ -119,7 +119,7 @@ module.exports = function (plop) {
       },
     ],
     actions: function ({ path }) {
-      const pathToFolder = `${rootPath}/${path}/{{ camelCase name }}`
+      const pathToFolder = `${projectPath}/${path}/{{ camelCase name }}`
       const pathToTemplate = `${rootPath}/templates/utils`
 
       const actions = [
