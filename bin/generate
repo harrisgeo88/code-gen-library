@@ -1,3 +1,4 @@
-plopfile="$(pwd)/node_modules/code-gen-library/build/bundle.js"
+cgl_path="$(pwd)/node_modules/code-gen-library"
+plopfile="$cgl_path/build/bundle.js"
 
-./node_modules/.bin/plop --plopfile $plopfile --cwd $(pwd)
+$cgl_path/node_modules/.bin/plop --plopfile $plopfile --cwd $(pwd)
